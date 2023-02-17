@@ -10,15 +10,15 @@ let loadInterval;
 
 
 function loader(element){
-  element.textContent ="";
+  element.textContent =".";
 
   loadInterval = setInterval(()=>{
      element.textContent += ".";  
 
-     if(element.textContext === "...."){
+     if(element.textContent === "...."){
        element.textContent = "";
      }
-  },1000)
+  },500)
 }
 
 
@@ -34,8 +34,7 @@ function typeText(element, text){
     }else{
       clearInterval(interval);
     }
-  }, 1000
-  )
+  }, 100)
 }
 
 
@@ -91,7 +90,7 @@ const handleSubmit = async (e) =>{
    loader(messageDiv);
 
   
-   const response = await fetch("http://localhost:5000",{
+   const response = await fetch("https://chatgpt-03.onrender.com",{
     method:"POST",
     headers:{
       "Content-Type" : "application/json"
